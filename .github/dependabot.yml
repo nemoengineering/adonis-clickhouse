@@ -1,11 +1,11 @@
 version: 2
 
 updates:
-  - package-ecosystem: "npm"
+  - package-ecosystem: 'npm'
     open-pull-requests-limit: 50
-    directory: "/"
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
+      - dependency-name: '*'
+        update-types: ['version-update:semver-patch']
