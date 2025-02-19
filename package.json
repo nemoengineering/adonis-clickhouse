@@ -1,0 +1,89 @@
+{
+  "name": "boilerplate",
+  "description": "boilerplate",
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "main": "build/index.js",
+  "type": "module",
+  "files": [
+    "build",
+    "!build/bin",
+    "!build/tests"
+  ],
+  "exports": {
+    ".": "./build/index.js"
+  },
+  "scripts": {
+    "clean": "del-cli build",
+    "copy:templates": "copyfiles --up 1 \"stubs/**/*.stub\" build",
+    "typecheck": "tsc --noEmit",
+    "index:commands": "adonis-kit index build/commands",
+    "lint": "eslint",
+    "format": "prettier --write .",
+    "quick:test": "node --enable-source-maps --import=ts-node-maintained/register/esm bin/test.ts",
+    "pretest": "npm run lint",
+    "test": "c8 npm run quick:test",
+    "prebuild": "npm run lint && npm run clean",
+    "build": "tsup-node --metafile && tsc --emitDeclarationOnly --declaration",
+    "postbuild": "npm run copy:templates && npm run index:commands",
+    "release": "npx release-it",
+    "version": "npm run build",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@adonisjs/assembler": "^7.8.2",
+    "@adonisjs/core": "^6.17.2",
+    "@adonisjs/eslint-config": "^2.0.0",
+    "@adonisjs/prettier-config": "^1.4.0",
+    "@adonisjs/redis": "^9.2.0",
+    "@adonisjs/tsconfig": "^1.4.0",
+    "@japa/assert": "^4.0.1",
+    "@japa/runner": "^4.2.0",
+    "@swc/core": "^1.10.16",
+    "@types/node": "^22.13.4",
+    "c8": "^10.1.3",
+    "copyfiles": "^2.4.1",
+    "del-cli": "^6.0.0",
+    "eslint": "^9.20.1",
+    "np": "^10.0.6",
+    "prettier": "^3.5.1",
+    "ts-node-maintained": "^10.9.5",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
+  },
+  "author": "",
+  "license": "MIT",
+  "keywords": [],
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  },
+  "prettier": "@adonisjs/prettier-config",
+  "c8": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "tsup": {
+    "entry": [
+      "index.ts"
+    ],
+    "outDir": "./build",
+    "clean": true,
+    "format": "esm",
+    "dts": false,
+    "sourcemap": true,
+    "target": "esnext"
+  }
+}
