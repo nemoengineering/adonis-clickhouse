@@ -29,6 +29,6 @@ export default class CacheClear extends BaseCommand {
     const fileName = `${prefix}_${this.name}.sql`
 
     const codemods = await this.createCodemods()
-    await codemods.makeUsingStub(stubsRoot, `make/commands/make_migration.stub`, { fileName })
+    await codemods.makeUsingStub(stubsRoot, `commands/make_migration.stub`, { fileName })
   }
 }

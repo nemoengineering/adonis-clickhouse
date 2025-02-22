@@ -39,5 +39,6 @@ export async function configure(command: Configure) {
    */
   await codemods.updateRcFile((rcFile) => {
     rcFile.addProvider('@nemoventures/adonis-clickhouse/clickhouse_provider')
+    rcFile.addCommand('@nemoventures/adonis-clickhouse/commands')
   })
 }
