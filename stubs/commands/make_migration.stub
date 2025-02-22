@@ -1,6 +1,6 @@
 {{{
   exports({
-    to: app.makePath(fileName)
+    to: app.makePath(migrationsPath, fileName)
   })
 }}}
 CREATE TABLE events
