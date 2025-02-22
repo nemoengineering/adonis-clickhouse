@@ -1,0 +1,12 @@
+{{{
+  exports({
+    to: app.makePath(fileName)
+  })
+}}}
+CREATE TABLE events
+(
+  action String,
+  timestamp DateTime
+)
+ENGINE = MergeTree()
+ORDER BY timestamp

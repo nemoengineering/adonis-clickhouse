@@ -7,9 +7,11 @@ import type { ClickHouseConnectionsList } from './types.js'
 export function defineConfig<Connections extends ClickHouseConnectionsList>(config: {
   connection: keyof Connections
   connections: Connections
+  migrationsPath?: string
 }): {
   connection: keyof Connections
   connections: Connections
+  migrationsPath?: string
 } {
   if (!config) {
     throw new RuntimeException('Invalid config. It must be an object')
