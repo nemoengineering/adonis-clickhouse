@@ -1,4 +1,4 @@
-import { ClickHouseService } from '../src/types.js'
+import type { ClickHouseService } from '../src/types.js'
 import app from '@adonisjs/core/services/app'
 
 let clickhouse: ClickHouseService

@@ -1,7 +1,7 @@
 {
   "name": "@nemoventures/adonis-clickhouse",
   "description": "ClickHouse client for AdonisJS",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "engines": {
     "node": ">=20.6.0"
   },
@@ -14,7 +14,9 @@
   ],
   "exports": {
     ".": "./build/index.js",
-    "./types": "./build/src/types.js"
+    "./types": "./build/src/types.js",
+    "./services/main": "./build/services/main.js",
+    "./clickhouse_provider": "./build/providers/clickhouse_provider.js"
   },
   "scripts": {
     "clean": "del-cli build",
@@ -29,7 +31,6 @@
     "prebuild": "npm run lint && npm run clean",
     "build": "tsup-node --metafile && tsc --emitDeclarationOnly --declaration",
     "postbuild": "npm run copy:templates && npm run index:commands",
-    "release": "npx release-it",
     "version": "npm run build",
     "prepublishOnly": "npm run build"
   },
@@ -55,14 +56,12 @@
     "tsup": "^8.3.6",
     "typescript": "^5.7.3"
   },
-  "author": "",
-  "license": "MIT",
-  "keywords": [],
-  "homepage": "",
-  "repository": {
-    "type": "git",
-    "url": ""
+  "dependencies": {
+    "@clickhouse/client": "^1.10.1",
+    "@poppinss/utils": "^6.9.2"
   },
+  "license": "MIT",
+  "repository": "https://github.com/nemoengineering/adonis-clickhouse",
   "publishConfig": {
     "provenance": true,
     "access": "public"
@@ -79,8 +78,10 @@
   },
   "tsup": {
     "entry": [
-      "./index.ts",
-      "./src/types.ts"
+      "index.ts",
+      "src/types.ts",
+      "providers/clickhouse_provider.ts",
+      "services/main.ts"
     ],
     "outDir": "./build",
     "clean": true,
@@ -88,9 +89,5 @@
     "dts": false,
     "sourcemap": true,
     "target": "esnext"
-  },
-  "dependencies": {
-    "@clickhouse/client": "^1.10.1",
-    "@poppinss/utils": "^6.9.2"
   }
 }

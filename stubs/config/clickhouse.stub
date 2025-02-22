@@ -11,11 +11,8 @@ const clickHouseConfig = defineConfig({
   connections: {
     default: {
       url: env.get('CLICKHOUSE_URL', 'http://localhost:8123'),
-      request_timeout: env.get('CLICKHOUSE_REQUEST_TIMEOUT', 30000),
-      compression: {
-        request: env.get('CLICKHOUSE_COMPRESSION_REQUEST', false),
-        response: env.get('CLICKHOUSE_COMPRESSION_RESPONSE', true),
-      },
+      request_timeout: 30000,
+      compression: { request: false, response: true },
       username: env.get('CLICKHOUSE_USERNAME', 'default'),
       password: env.get('CLICKHOUSE_PASSWORD', ''),
       application: 'clickhouse-js',
