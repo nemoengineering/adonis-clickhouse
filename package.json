@@ -1,7 +1,7 @@
 {
   "name": "@nemoventures/adonis-clickhouse",
   "description": "ClickHouse client for AdonisJS",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "engines": {
     "node": ">=20.6.0"
   },
@@ -15,6 +15,8 @@
   "exports": {
     ".": "./build/index.js",
     "./types": "./build/src/types.js",
+    "./commands/*": "./build/commands/*.js",
+    "./commands": "./build/commands/main.js",
     "./services/main": "./build/services/main.js",
     "./clickhouse_provider": "./build/providers/clickhouse_provider.js"
   },
@@ -81,7 +83,8 @@
       "index.ts",
       "src/types.ts",
       "providers/clickhouse_provider.ts",
-      "services/main.ts"
+      "services/main.ts",
+      "commands/clickhouse_make_migration.ts"
     ],
     "outDir": "./build",
     "clean": true,
