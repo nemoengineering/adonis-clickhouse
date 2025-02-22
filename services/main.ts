@@ -1,10 +1,10 @@
-import { ClickhouseService } from '../src/types.js'
+import { ClickHouseService } from '../src/types.js'
 import app from '@adonisjs/core/services/app'
 
-let clickhouse: ClickhouseService
+let clickhouse: ClickHouseService
 
 /**
- * Returns a singleton instance of the Clickhouse client from the
+ * Returns a singleton instance of the ClickHouse client from the
  * container
  */
 await app.booted(async () => {

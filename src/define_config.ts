@@ -1,10 +1,10 @@
 import { RuntimeException } from '@poppinss/utils'
-import type { ClickhouseConnectionsList } from './types.js'
+import type { ClickHouseConnectionsList } from './types.js'
 
 /**
  * Define config for clickhouse
  */
-export function defineConfig<Connections extends ClickhouseConnectionsList>(config: {
+export function defineConfig<Connections extends ClickHouseConnectionsList>(config: {
   connection: keyof Connections
   connections: Connections
 }): {

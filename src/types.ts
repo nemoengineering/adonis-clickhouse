@@ -5,17 +5,17 @@ import { NodeClickHouseClient } from '@clickhouse/client/dist/client.js'
  * A list of multiple connections defined inside the user
  * config file
  */
-export type ClickhouseConnectionsList = Record<string, NodeClickHouseClientConfigOptions>
+export type ClickHouseConnectionsList = Record<string, NodeClickHouseClientConfigOptions>
 
 /**
  * List of connections inferred from user config
  */
-export interface ClickhouseConnections {}
-export type InferConnections<T extends { connections: ClickhouseConnectionsList }> =
+export interface ClickHouseConnections {}
+export type InferConnections<T extends { connections: ClickHouseConnectionsList }> =
   T['connections']
 
 /**
- * Clickhouse service is a singleton Clickhouse instance registered
+ * ClickHouse service is a singleton ClickHouse instance registered
  * with the container based upon user defined config
  */
-export interface ClickhouseService extends NodeClickHouseClient {}
+export interface ClickHouseService extends NodeClickHouseClient {}

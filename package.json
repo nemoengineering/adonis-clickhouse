@@ -1,6 +1,6 @@
 {
   "name": "@nemoventures/adonis-clickhouse",
-  "description": "Clickhouse client for AdonisJS",
+  "description": "ClickHouse client for AdonisJS",
   "version": "0.0.0",
   "engines": {
     "node": ">=20.6.0"
@@ -40,6 +40,7 @@
     "@adonisjs/prettier-config": "^1.4.0",
     "@adonisjs/tsconfig": "^1.4.0",
     "@japa/assert": "^4.0.1",
+    "@japa/file-system": "^2.3.2",
     "@japa/runner": "^4.2.0",
     "@swc/core": "^1.10.16",
     "@types/node": "^22.13.4",

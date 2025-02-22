@@ -32,6 +32,9 @@ importers:
       '@japa/assert':
         specifier: ^4.0.1
         version: 4.0.1(@japa/runner@4.2.0)
+      '@japa/file-system':
+        specifier: ^2.3.2
+        version: 2.3.2(@japa/assert@4.0.1(@japa/runner@4.2.0))(@japa/runner@4.2.0)
       '@japa/runner':
         specifier: ^4.2.0
         version: 4.2.0
@@ -864,6 +867,16 @@ packages:
         integrity: sha512-exl/r07ssJhEEsMdFT2sXgP1sV7Tp3mZvYUEDMXZ8YjWZPHTFLLcA7o9q9FJSSB1ITrEIbx2SWTB+2fFUaZ3NA==,
       }
     engines: { node: '>=18.16.0' }
+
+  '@japa/file-system@2.3.2':
+    resolution:
+      {
+        integrity: sha512-BY1M2NJkZze8zqLI8mpMHu5HuFQLe+xyspBHHyC1pXYvEWlgILoYZ8kkKwxLwo7yVW6VVkDb72pBbjHBTTXv1g==,
+      }
+    engines: { node: '>=18.16.0' }
+    peerDependencies:
+      '@japa/assert': ^2.0.0 || ^3.0.0 || ^4.0.0
+      '@japa/runner': ^3.0.0 || ^4.0.0
 
   '@japa/runner@4.2.0':
     resolution:
@@ -6521,6 +6534,15 @@ snapshots:
       jest-diff: 29.7.0
       supports-color: 10.0.0
       youch: 4.1.0-beta.5
+
+  '@japa/file-system@2.3.2(@japa/assert@4.0.1(@japa/runner@4.2.0))(@japa/runner@4.2.0)':
+    dependencies:
+      '@japa/assert': 4.0.1(@japa/runner@4.2.0)
+      '@japa/runner': 4.2.0
+      '@paralleldrive/cuid2': 2.2.2
+      '@poppinss/macroable': 1.0.4
+      readdirp: 4.1.2
+      slash: 5.1.0
 
   '@japa/runner@4.2.0':
     dependencies:

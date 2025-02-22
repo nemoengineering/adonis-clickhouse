@@ -1,29 +1,29 @@
 import type { ApplicationService } from '@adonisjs/core/types'
-import type { ClickhouseService } from '../src/types.js'
+import type { ClickHouseService } from '../src/types.js'
 import { defineConfig } from '../src/define_config.js'
 
 declare module '@adonisjs/core/types' {
   export interface ContainerBindings {
-    clickhouse: ClickhouseService
+    clickhouse: ClickHouseService
   }
 }
 
-export default class ClickhouseProvider {
+export default class ClickHouseProvider {
   constructor(protected app: ApplicationService) {}
 
   register() {
     this.app.container.singleton('clickhouse', async () => {
-      const clickhouseConfig = this.app.config.get<ReturnType<typeof defineConfig>>('clickhouse')
+      const clickHouseConfig = this.app.config.get<ReturnType<typeof defineConfig>>('clickhouse')
       const { createClient } = await import('@clickhouse/client')
 
-      return createClient(clickhouseConfig.connections[clickhouseConfig.connection])
+      return createClient(clickHouseConfig.connections[clickHouseConfig.connection])
     })
   }
 
   async boot() {}
 
   async shutdown() {
-    const clickhouse = await this.app.container.make('clickhouse')
-    await clickhouse.close()
+    const clickHouse = await this.app.container.make('clickhouse')
+    await clickHouse.close()
   }
 }

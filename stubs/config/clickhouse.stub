@@ -1,15 +1,11 @@
-{
-  {
-    {
-      exports({ to: app.configPath('clickhouse.ts') })
-    }
-  }
-}
+{{{
+  exports({ to: app.configPath('clickhouse.ts') })
+}}}
 import env from '#start/env'
 import { defineConfig } from '@nemoventures/adonis-clickhouse'
 import { InferConnections } from '@nemoventures/adonis-clickhouse/types'
 
-const clickhouseConfig = defineConfig({
+const clickHouseConfig = defineConfig({
   connection: 'default',
 
   connections: {
@@ -20,7 +16,7 @@ const clickhouseConfig = defineConfig({
         request: env.get('CLICKHOUSE_COMPRESSION_REQUEST', false),
         response: env.get('CLICKHOUSE_COMPRESSION_RESPONSE', true),
       },
-      username: env.get('CLICKHOUSE_USER', 'default'),
+      username: env.get('CLICKHOUSE_USERNAME', 'default'),
       password: env.get('CLICKHOUSE_PASSWORD', ''),
       application: 'clickhouse-js',
       database: env.get('CLICKHOUSE_DB', 'default'),
@@ -29,8 +25,8 @@ const clickhouseConfig = defineConfig({
   },
 })
 
-export default clickhouseConfig
+export default clickHouseConfig
 
 declare module '@nemoventures/adonis-clickhouse/types' {
-  export interface ClickhouseConnections extends InferConnections<typeof clickhouseConfig> {}
+  export interface ClickHouseConnections extends InferConnections<typeof clickHouseConfig> {}
 }
