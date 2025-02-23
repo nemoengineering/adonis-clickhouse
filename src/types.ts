@@ -1,5 +1,6 @@
 import { NodeClickHouseClientConfigOptions } from '@clickhouse/client/dist/config.js'
 import { NodeClickHouseClient } from '@clickhouse/client/dist/client.js'
+import { defineConfig } from './define_config.js'
 
 /**
  * A list of multiple connections defined inside the user
@@ -19,3 +20,5 @@ export type InferConnections<T extends { connections: ClickHouseConnectionsList 
  * with the container based upon user defined config
  */
 export interface ClickHouseService extends NodeClickHouseClient {}
+
+export type Config = ReturnType<typeof defineConfig>

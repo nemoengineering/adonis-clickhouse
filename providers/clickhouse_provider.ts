@@ -12,8 +12,9 @@ export default class ClickHouseProvider {
   constructor(protected app: ApplicationService) {}
 
   register() {
+    const clickHouseConfig = this.app.config.get<ReturnType<typeof defineConfig>>('clickhouse')
+
     this.app.container.singleton('clickhouse', async () => {
-      const clickHouseConfig = this.app.config.get<ReturnType<typeof defineConfig>>('clickhouse')
       const { createClient } = await import('@clickhouse/client')
 
       return createClient(clickHouseConfig.connections[clickHouseConfig.connection])

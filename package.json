@@ -1,7 +1,7 @@
 {
   "name": "@nemoventures/adonis-clickhouse",
   "description": "ClickHouse client for AdonisJS",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "engines": {
     "node": ">=20.6.0"
   },
@@ -60,10 +60,14 @@
   },
   "dependencies": {
     "@clickhouse/client": "^1.10.1",
+    "@dnap/knex-clickhouse-dialect": "^1.0.2",
     "@poppinss/utils": "^6.9.2"
   },
   "license": "MIT",
-  "repository": "https://github.com/nemoengineering/adonis-clickhouse",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nemoengineering/adonis-clickhouse.git"
+  },
   "publishConfig": {
     "provenance": true,
     "access": "public"
@@ -84,7 +88,8 @@
       "src/types.ts",
       "providers/clickhouse_provider.ts",
       "services/main.ts",
-      "commands/clickhouse_make_migration.ts"
+      "commands/clickhouse_make_migration.ts",
+      "commands/clickhouse_migration_run.ts"
     ],
     "outDir": "./build",
     "clean": true,

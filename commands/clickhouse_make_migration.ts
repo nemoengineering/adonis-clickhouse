@@ -6,9 +6,7 @@ import { stubsRoot } from '../stubs/main.js'
 export default class CacheClear extends BaseCommand {
   static commandName = 'clickhouse:make:migration'
   static description = 'Make a new ClickHouse migration file'
-  static options: CommandOptions = {
-    startApp: true,
-  }
+  static options: CommandOptions = { startApp: true }
 
   @args.string({ description: 'Name of the migration file' })
   declare name: string
